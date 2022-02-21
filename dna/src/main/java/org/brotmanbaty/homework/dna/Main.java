@@ -18,27 +18,27 @@ import java.nio.file.StandardOpenOption;
  * way: the DNA molecules in the input are fragmented into pieces of equal length L; each piece is then sequenced by the
  * technology, and its content is encoded in the output. The particular encoding used in the output is the following:
  * 
- * • The file contains multiple consecutive entries, one per piece.<br>
- * • Each piece is represented by L consecutive bytes (1 byte = 8 bits).<br>
- * • The first two (most significant) bits of each byte encode the DNA letter:<br>
+ * * The file contains multiple consecutive entries, one per piece.<br>
+ * * Each piece is represented by L consecutive bytes (1 byte = 8 bits).<br>
+ * * The first two (most significant) bits of each byte encode the DNA letter:<br>
  * Encoding Base (DNA letter)<br>
  * 00 A<br>
  * 01 C<br>
  * 10 G<br>
  * 11 T<br>
- * • The last six (least significant) bits of each byte encode the confidence that the readout was correct, also known
+ * * The last six (least significant) bits of each byte encode the confidence that the readout was correct, also known
  * as the quality score. It is represented as an unsigned 6-bit integer in the range 0 to 63.<br>
  * 
  * Write a program that takes as input an encoded file as well as the number L, and converts it to a text file of the
  * following format (known as the FASTQ format):<br>
- * • Each piece is represented by four lines:<br>
- * o The first line contains the word @READ_ followed by the piece index. The first piece has an index of 1, so its
+ * * Each piece is represented by four lines:<br>
+ * ** The first line contains the word @READ_ followed by the piece index. The first piece has an index of 1, so its
  * first line would be @READ_1<br>
- * o The second line contains L characters in the {A,C,G,T} alphabet, representing the DNA sequence of the piece.<br>
- * o The third line contains the word +READ_ followed by the piece index (e.g., +READ_1).<br>
- * o The fourth line contains L characters, representing the quality scores of the piece. Each score is represented as
+ * ** The second line contains L characters in the {A,C,G,T} alphabet, representing the DNA sequence of the piece.<br>
+ * ** The third line contains the word +READ_ followed by the piece index (e.g., +READ_1).<br>
+ * ** The fourth line contains L characters, representing the quality scores of the piece. Each score is represented as
  * an ASCII character in the range 33-96, by adding 33 to the original score. For example, if the original score is 0,
- * it should be represented by the ASCII character 33 (“!”)<br>
+ * it should be represented by the ASCII character 33 ("!")<br>
  * 
  * ANSWER
  * 

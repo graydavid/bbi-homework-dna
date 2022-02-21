@@ -2,7 +2,7 @@ package org.brotmanbaty.homework.dna;
 
 import java.util.Objects;
 
-/** A scanning/reading of one of a DNA moleculé's bases. */
+/** A scanning/reading of one of a DNA molecule's bases. */
 public class ReadingBase {
     private final Base base;
     private final QualityScore score;
